@@ -15,22 +15,29 @@ class _MenuState extends State<Menu> {
         body: Column(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(20, 120, 20, 0),
+              padding: EdgeInsets.fromLTRB(20, 50, 20, 0),
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Text(
-                        'Boa \nTarde !',
+                        'Boa\nTarde!',
                         style: TextStyle(
-                            fontSize: 45, fontWeight: FontWeight.bold),
+                            fontSize: 35, fontWeight: FontWeight.bold),
                       ),
                       Row(children: <Widget>[
-                        Text(
-                          'Eduardo Felipe',
-                          maxLines: 2,
-                          style: TextStyle(fontSize: 18),
+                        Container(
+                          width: 110,
+                          height: 45,
+                          child: Wrap(children: [
+                            Text(
+                              'Epaminondas Figueiredo',
+                              //maxLines: 2,
+                              style: TextStyle(fontSize: 18),
+                            ),
+                          ],
+                          ),
                         ),
                         SizedBox(
                           width: 10,

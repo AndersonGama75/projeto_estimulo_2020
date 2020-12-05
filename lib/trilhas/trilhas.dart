@@ -55,11 +55,133 @@ class _TelaTrilhasState extends State<TelaTrilhas> {
                     ]),
                 child: Column(
                   children: <Widget>[
-                    Container(
-                      padding: EdgeInsets.fromLTRB(0, 420, 0, 1),
-                      decoration: BoxDecoration(
-                          border: Border(
-                              bottom: BorderSide(color: Colors.red[100]))),
+                    Stack(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 420, 0, 1),
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.red[100]))),
+                        ),
+                        Container(
+                          // Lista Horizontal - Trilhas
+                          margin: EdgeInsets.symmetric(vertical: 130.0),
+                          height: 150.0,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              InkWell(
+                                  child: Container(
+                                    width: 360.0,
+                                    color: Colors.lightBlue[50],
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          padding:
+                                              EdgeInsets.fromLTRB(20, 50, 0, 0),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                'Módulo',
+                                                style: TextStyle(fontSize: 10),
+                                              ),
+                                              Text(
+                                                'Financeiro',
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/img_financeiro.png',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    print('Clicado!!!');
+                                  }),
+                              InkWell(
+                                  child: Container(
+                                    width: 360.0,
+                                    color: Colors.lightBlue[50],
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          padding:
+                                              EdgeInsets.fromLTRB(20, 20, 0, 0),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                'Módulo',
+                                                style: TextStyle(fontSize: 10),
+                                              ),
+                                              Text(
+                                                'Tecnologia\n      e\nInovação',
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/img_tecnologia.png',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    print('Clicado!!!');
+                                  }),
+                              InkWell(
+                                  child: Container(
+                                    width: 360.0,
+                                    color: Colors.lightBlue[50],
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          padding:
+                                              EdgeInsets.fromLTRB(20, 50, 0, 0),
+                                          child: Column(
+                                            children: [
+                                              Text(
+                                                'Módulo',
+                                                style: TextStyle(fontSize: 10),
+                                              ),
+                                              Text(
+                                                'Gestão de RH',
+                                                style: TextStyle(fontSize: 30),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Container(
+                                          alignment: Alignment.bottomRight,
+                                          child: Image.asset(
+                                            'assets/img_rh.png',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    print('Clicado!!!');
+                                  }),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
