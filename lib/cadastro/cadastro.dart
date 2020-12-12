@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_estimulo_2020/menu/menu.dart';
 
 class Cadastro extends StatefulWidget {
   @override
@@ -6,17 +7,25 @@ class Cadastro extends StatefulWidget {
 }
 
 class _CadastroState extends State<Cadastro> {
+
+  TextEditingController nomeController = TextEditingController();
+  getNome(){
+    return this.nomeController;
+  }
+  
+  //ArgumentosDaRota teste;
+
   bool termosDeUso = false;
   bool whatsapp = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         resizeToAvoidBottomPadding: false,
-        body: SingleChildScrollView(
+        body: Container(
           child: Column(
             children: <Widget>[
               SizedBox(
-                height: 130,
+                height: 30,
               ),
               Center(
                 child: Image.asset(
@@ -25,7 +34,7 @@ class _CadastroState extends State<Cadastro> {
                 ),
               ),
               SizedBox(
-                height: 80,
+                height: 30,
               ),
               Text(
                 'Seja bem vindo !',
@@ -37,19 +46,19 @@ class _CadastroState extends State<Cadastro> {
               Text(
                   'Insira seus dados abaixo para ter acesso \nao aplicativo do Projeto Estímulo 2020!'),
               SizedBox(
-                height: 30,
+                height: 10,
               ),
               Container(
-                height: 315,
-                padding: EdgeInsets.all(15.0),
-                margin: EdgeInsets.all(10),
+                height: 290,
+                padding: EdgeInsets.all(5.0),
+                margin: EdgeInsets.all(15),
                 decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Colors.blueGrey[100],
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
                           color: Colors.grey[600],
-                          blurRadius: 8.0,
+                          blurRadius: 10.0,
                           offset: Offset(1, 1.5))
                     ]),
                 child: Card(
@@ -62,6 +71,8 @@ class _CadastroState extends State<Cadastro> {
                               border: Border(
                                   bottom: BorderSide(color: Colors.grey[100]))),
                           child: TextField(
+                            controller: nomeController,
+                            textCapitalization: TextCapitalization.words,
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Nome Completo",
@@ -69,6 +80,9 @@ class _CadastroState extends State<Cadastro> {
                           )),
                       Container(
                           padding: EdgeInsets.fromLTRB(20, 1, 0, 1),
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[100]))),
                           child: TextField(
                             decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -77,6 +91,9 @@ class _CadastroState extends State<Cadastro> {
                           )),
                       Container(
                           padding: EdgeInsets.fromLTRB(20, 1, 0, 1),
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(color: Colors.grey[100]))),
                           child: TextField(
                             decoration: InputDecoration(
                                 border: InputBorder.none,
@@ -88,7 +105,11 @@ class _CadastroState extends State<Cadastro> {
                           activeColor: Colors.blue,
                           value: termosDeUso,
                           title: Text(
-                              'Li e concordo com os termos de uso e política de privacidade'),
+                            'Li e concordo com os termos de uso e política de privacidade',
+                            style: TextStyle(
+                              fontSize: 11,
+                            ),
+                          ),
                           onChanged: (bool value) {
                             setState(() {
                               termosDeUso = value;
@@ -99,7 +120,11 @@ class _CadastroState extends State<Cadastro> {
                           activeColor: Colors.blue,
                           value: whatsapp,
                           title: Text(
-                              'Eu aceito receber mensagens por WhatsApp relacionadas a iniciativa Estímulo 2020'),
+                            'Eu aceito receber mensagens por WhatsApp relacionadas a iniciativa Estímulo 2020',
+                            style: TextStyle(
+                              fontSize: 11,
+                            ),
+                          ),
                           onChanged: (bool value) {
                             setState(() {
                               whatsapp = value;
@@ -117,9 +142,17 @@ class _CadastroState extends State<Cadastro> {
                   borderRadius: BorderRadius.circular(18.0),
                 ),
                 color: Colors.blue[400],
-                onPressed: () {},
+                onPressed: () {
+                  
+                  //teste = ArgumentosDaRota(nomeController.text, teste);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Menu(nomeUsuario: '${nomeController.text}')),
+                  );
+                },
                 child: Text(
-                  "             Cadastrar             ",
+                  "Cadastrar",
+                  textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white),
                 ),
               )
@@ -128,3 +161,23 @@ class _CadastroState extends State<Cadastro> {
         ));
   }
 }
+
+// class ArgumentosDaRota {
+//   String nome = 'Cassandra Linda';
+//   List<ArgumentosDaRota> objArg;
+
+//   ArgumentosDaRota(String nome, ArgumentosDaRota obj){
+//     this.nome = nome;
+//     this.objArg.add(obj);
+//     //setObjArg(this);
+//   }
+
+//   // setObjArg(ArgumentosDaRota obj){
+//   //   this.objArg = obj;
+//   // }
+
+//   ArgumentosDaRota getObjArg(){
+//     return this.objArg[0];
+//   }
+
+// }

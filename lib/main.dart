@@ -15,32 +15,47 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController senhaController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      body: SingleChildScrollView(
+    return MaterialApp(
+      title: 'Welcome',
+      home: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/loginScreen.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
+    child: Scaffold(
+      backgroundColor: Colors.transparent,
+      resizeToAvoidBottomInset: false,
+      body: Container(
           child: Column(
         children: <Widget>[
           Positioned(
             child: Container(
                 //height: 1000,
-                decoration: BoxDecoration(
+                /*decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/loginScreen.png'),
                       fit: BoxFit.cover),
-                ),
+                ),*/
                 child: Stack(children: <Widget>[
-                  Positioned(
+                  /*Positioned(
                       child: Container(
                           margin: EdgeInsets.only(top: 0, left: 10),
-                          child: Center())),
+                          child: Center())),*/
                   Padding(
-                    padding: EdgeInsets.fromLTRB(20, 500, 20, 0),
+                    padding: EdgeInsets.fromLTRB(20, 300, 20, 0),
                     child: Column(
                       children: <Widget>[
                         Container(
-                          padding: EdgeInsets.all(25),
+                          margin: EdgeInsets.fromLTRB(0, 50, 0, 0),
+                          padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(25),
@@ -62,7 +77,7 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                               SizedBox(
-                                height: 30,
+                                height: 20,
                               ),
                               Container(
                                   padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
@@ -71,6 +86,8 @@ class _HomeState extends State<Home> {
                                           bottom: BorderSide(
                                               color: Colors.grey[100]))),
                                   child: TextField(
+                                    controller: emailController,
+                                    keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
                                         hintText: "Telefone / E-mail",
@@ -80,6 +97,9 @@ class _HomeState extends State<Home> {
                               Container(
                                   padding: EdgeInsets.fromLTRB(20, 1, 0, 1),
                                   child: TextField(
+                                    controller: senhaController,
+                                    keyboardType: TextInputType.text,
+                                    obscureText: true,
                                     decoration: InputDecoration(
                                         border: InputBorder.none,
                                         hintText: "Senha",
@@ -87,7 +107,7 @@ class _HomeState extends State<Home> {
                                             TextStyle(color: Colors.grey[400])),
                                   )),
                               SizedBox(
-                                height: 20,
+                                height: 5,
                               ),
                               Padding(
                                 padding: EdgeInsets.fromLTRB(20, 1, 55, 1),
@@ -149,9 +169,12 @@ class _HomeState extends State<Home> {
                                     MaterialPageRoute(
                                         builder: (context) => Menu()),
                                   );
+                                  emailController.clear();
+                                  senhaController.clear();
                                 },
                                 child: Text(
-                                  "             Entrar             ",
+                                  "Entrar",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
@@ -168,6 +191,8 @@ class _HomeState extends State<Home> {
           ),
         ],
       )),
+    ),
+      ),
     );
   }
 }
